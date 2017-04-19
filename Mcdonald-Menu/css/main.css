@@ -1,0 +1,366 @@
+
+h1, h2, h3, h4, h5, h6 {color: #343434;font-weight: normal; font-family: "Alegreya Sans"}
+    
+
+    
+    
+    
+    h2{font-size:18px;}
+    h3{font-size:16px;margin-bottom:10px;}
+    
+    p{line-height:28px; font-family: "Alegreya Sans"}
+    em { font-style: italic; }
+    strong { font-weight: bold; color: #333; }
+    small { font-size: 80%; }
+
+    body {
+        background: #ffffff;
+        font: 14px/21px 'open_sans', Arial, sans-serif;
+        color: #999999;
+        -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+        -webkit-text-size-adjust: 100%;
+
+        
+ }
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline; 
+        text-decoration:none;}
+
+
+    ul {
+        list-style: none; }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0; }
+        
+img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+
+.margin-top{
+    margin-top: 20px;
+}
+
+
+/*M animation*/
+
+.overlay{
+    position: absolute;
+    z-index: 10;
+}
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 20s linear alternate infinite;
+
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 5000;
+  }
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+/*Wrapper*/
+
+
+#wrapper{
+	position:relative;
+	width:100%;
+}
+
+/*End wrapper*/
+
+
+
+/*Profile teaser*/
+
+.profileTeaser{
+	overflow:hidden;
+	position:relative;
+}
+
+
+.profileTeaser {
+
+	background-size: cover ;
+	height: 500px ;
+
+}
+
+.thead {
+    font-size: 70px;
+    color: #fff;
+    font-family: "Alegreya Sans"
+    position:absolute;
+}
+
+.head-pic {
+    
+    width:400px;
+    height:80px; 
+    background:#D52B1E; 
+    position: relative; 
+    display: block; 
+    margin:auto;
+    font-size: 65px;
+    color: #fff;  
+    
+}
+
+.menu-pic {
+    width: 310px;
+    height: 218px;
+}
+
+.head-bg {
+    
+    height: 100%;
+    width: 100%;
+}
+.layer {
+    background-color: rgba(50, 50, 50, 0.7);
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+
+.caption {
+    top: 15%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+	color:#ffffff;
+}
+
+
+.caption h1{
+	color:#ffffff;
+	font-size:68px;
+	letter-spacing:-1px;
+	
+}
+
+.caption p {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 20px;
+    padding: 0 500px;
+    text-transform: uppercase;
+}
+
+/*End teaser head*/
+
+
+/*Menu section*/
+
+.bigTitle{
+        position:relative;
+        font-family: "Alegreya Sans"
+}
+
+.tCenter {
+    text-align: center;
+}
+
+.tholder {
+    background:#f4f4f4;
+    padding-top:20px;
+}
+
+
+
+.item{
+    position: relative;
+	margin-bottom:30px;
+	overflow:hidden;
+}
+
+
+.item:hover img {
+    -moz-transform: scale(1.2)  ;
+	-webkit-transform: scale(1.2) ;
+	-o-transform: scale(1.2)  ;
+	.transform: scale(1.2) ;
+	
+}
+
+
+.itemDesc{
+	position:absolute;
+	background:  rgba(36, 36, 36, .8);
+	width:100%;
+	height:100%;
+	z-index:10;
+}
+
+.itemDesc h3 {
+ 	color: #f1f1f1;
+    margin-bottom: 10px;
+    text-transform: none;
+    font-size: 32px;
+}
+
+.menu-name {
+    font-size: 30px;
+    color: #fff;
+    font-family: "Alegreya Sans"
+}
+
+.menu-name2 {
+    font-size: 20px;
+    color: #000;
+    font-family: "Alegreya Sans"
+}
+
+fieldset{
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px  solid silver;
+    width: 620px;
+    height: 400px;
+}
+
+legend.g1{
+    color: #ffa500;
+    font-size: 20px;
+    font-weight: bold;
+   
+
+}
+
+legend.g2{
+    color: #0090ff;
+    font-size: 20px;
+    font-weight: bold;
+    
+
+}
+
+legend.g3{
+    color: #d6300a;
+    font-size: 20px;
+    font-weight: bold;
+    
+
+}
+
+.center {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+
+.align-left {
+    text-align: left;
+}
+
+.margin-top-minus {
+    margin-top: -20px;
+}
+
+.bold {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    color: #000;
+    
+}
+
+.unbold {
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+path:{opacity: 1;} 
+path:hover{opacity: 0.7;}
+.legend {font-size: 12px;}
+circle{stroke-width: 2;}
+
+
+.bar {
+    fill: #FFEB00 ;
+    opacity:1;
+}
+.bar:hover {
+    fill: #FAB433;
+  transition: fill 0.8s;
+    opacity:0.5;
+}
+
+.bar2 {
+    fill:#FE0000 ;
+    opacity:0.6;
+}
+.bar2:hover {
+    fill: #FAB433;
+  transition: fill 0.8s;
+     opacity:0.3;
+}    
+
+.toolTip {
+ position: absolute;
+  pointer-events: none;
+  display: none;
+  min-width: 50px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  padding: 9px 14px 6px 14px;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 1.3;
+  color: #5B6770;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, .15);
+}
+.toolTip:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid white;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -12px;
+}  
+.toolTip span {
+    font-weight: 500;
+  color: #081F2C;
+}
+
+
