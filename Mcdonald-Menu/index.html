@@ -130,7 +130,7 @@
 						<div class="itemDesc">
 
 							<div class="itemDescInner">
-							<div class="click" data_id="2">
+							<div class="click" data_id="3">
 							<a href="#nutrition" class="menu-name scroll">Premium Buttermilk Crispy Chicken Sandwich</a>
 							</div>
 							</div>
@@ -143,7 +143,7 @@
 						<div class="itemDesc">
 
 							<div class="itemDescInner">
-							<div class="click" data_id="2">
+							<div class="click" data_id="4">
 							<a href="#nutrition" class="menu-name scroll">Artisan Grilled Chicken Sandwich</a>
 							</div>
 							</div>
@@ -157,7 +157,7 @@
 						<div class="itemDesc">
 
 							<div class="itemDescInner">
-							<div class="click" data_id="2">
+							<div class="click" data_id="5">
 							<a href="#nutrition" class="menu-name scroll">Chicken McNuggets </a>
 							</div>
 							</div>
@@ -171,7 +171,7 @@
 						<div class="itemDesc">
 
 							<div class="itemDescInner">
-							<div class="click" data_id="2">
+							<div class="click" data_id="6">
 							<a href="#nutrition" class="menu-name scroll">Filet-O-Fish</a>
 							</div>
 							</div>
@@ -254,7 +254,7 @@
 					         style="">
 					         How many months have you been eating McDonald's? = <span id="nWidth-value">…</span>
 					  </label><br>
-					  <input type="range" min="40" max="100" id="nWidth" step="10">
+					   <input type="range" min="36" max="60" id="nWidth" step="4">
 					</p>
 
 					<p id="littleman-graph"></p>
@@ -284,6 +284,57 @@
 	<!--Javascript-->
 	<!-- script for creating little fat man -->
  <script type="text/javascript"> 
+
+	// Creating canvas
+	var width = 620;
+	var height = 350;
+
+
+	var holder = d3.select("#littleman-graph")
+	      .append("svg")
+	      .attr("width", width)    
+	      .attr("height", height); 
+
+	var g = holder.append("g")
+		.attr("transform", "translate(" + 100 + "," + 50 + ")");
+
+	var mcdMan=g
+	  .append("image")
+	  .attr('xlink:href','img/mcd.png')
+	  .attr("height",'270')
+	  .attr('width','180')
+	  .attr('x','100')
+	  .attr('y','0');
+
+	// Body
+	g.append("ellipse")
+	  .attr("cx", 190)
+	  .attr("cy", 196)
+	  .attr("rx", 36)
+	  .attr("ry", 51)
+	  .style("fill", "#ffc300")
+	  .style("stroke", "#ffc300")
+	  .style("stroke-width","1");
+
+	// read a change in the width input
+	d3.select("#nWidth").on("input", function() {
+	  updateWidth(+this.value);
+	});
+
+	// update the values
+	updateWidth(36);
+
+	// Update the width attributes
+	function updateWidth(nWidth) {
+
+	// Adjust the text on the range slider
+	  d3.select("#nWidth-value").text((nWidth/4)-9);
+	  d3.select("#nWidth").property("value", nWidth);
+
+	// Update the rectangle width
+	  g.selectAll("ellipse")
+	    .attr("rx", nWidth);
+	}
 
  </script>
 
@@ -464,13 +515,15 @@ function clickHandle (e) {
         d3.selectAll("svg.removable").remove();
         var id = this.getAttribute("data_id");
         plotDountpie(donutData, donutPerc, id);
+        PlotBarOne(barData,HumanData,id);
+     	PlotBarTwo(eachBurn,id);
     }
     else {
      console.warn("Data has not yet loaded");   
     }
 }
 
-<!--</script>
+</script>
 
 <!-- script for the first bar -->
 <script type="text/javascript">
@@ -494,7 +547,7 @@ function PlotBarOne(data1,data2,ArrayIndex){
     height = 350 - margin.top - margin.bottom;
   
 var tooltip = d3.select("#graph1").append("div").attr("class", "toolTip");
- 
+
 var xExtent1= d3.extent(NestedData, function(d) {return d.value; });  
 //console.log(xExtent1)
 
@@ -530,10 +583,12 @@ var y = d3.scaleBand().range([height, 0]);
         .attr("rx", 6)
         .attr("ry", 6)
         .attr("x", 0)
+
         .attr("height", y.bandwidth()/5*2)
         .attr("transform", "translate(0,15)")
         .attr("y", function(d) { return y(d.label); })
         .attr("width", function(d) {return x(d.value); })
+
         .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX - 50 + "px")
