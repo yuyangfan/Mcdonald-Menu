@@ -32,7 +32,7 @@
 			<!--teaser-->
 			<div class="teaser">
 				
-				<img src="img/head2.png" class="head-bg" />
+				<img src="img/head3.jpg" class="head-bg" />
 
         		<div class="layer"></div>
 
@@ -53,7 +53,7 @@
 					    </g>
 					</svg> -->
 
-					<div class="head-pic">i'm lovin' it!</div>
+					<div class="head-pic">i'm learnin' it!</div>
 				
 					
 
@@ -71,7 +71,7 @@
 			<div class="tholder ">
 
 				<div class="bigTitle tCenter">	
-					<h1 style="font-size:30px; ">- Select a Menu -</h1>
+					<h1 style="font-size:30px; ">Select a menu to learn about its nutritional facts</h1>
 				</div>
 							
 			</div>
@@ -253,7 +253,7 @@
 				<div class="GraphFour">
 				<fieldset>
 				  <legend></legend>
-				  <p class="tCenter">
+				  <p class="leftAlign">
 					  <label for="nWidth" 
 					         style="">
 					         <span id="nWidth-value">…</span>
@@ -524,6 +524,7 @@ var g2 = svg.append("g")
         .attr("y",156)
         .style("fill","#2CA02C")
        .style("font-size", "15px")
+       .style("font-weight", "bold")
        .text("Proteins"); 
     
 
@@ -539,6 +540,7 @@ var g2 = svg.append("g")
         .attr("y",186)
         .style("fill","#F97C2A")
        .style("font-size", "15px")
+        .style("font-weight", "bold")
        .text("Carbohydrates"); 
     
     
@@ -554,6 +556,7 @@ var g2 = svg.append("g")
         .attr("y",216)
         .style("fill","#1F77B4")
        .style("font-size", "15px")
+        .style("font-weight", "bold")
        .text("Fats"); 
     
     
@@ -569,6 +572,7 @@ var g2 = svg.append("g")
         .attr("y",246)
         .style("fill","#D62728")
        .style("font-size", "15px")
+        .style("font-weight", "bold")
        .text("Others"); 
     
        svg.append("line")
@@ -584,6 +588,7 @@ var g2 = svg.append("g")
         .attr("y",245)
         .style("fill","#D62728")
        .style("font-size", "15px")
+        .style("font-weight", "bold")
        .text("Others includes:")
        .append("tspan")
       .attr("x", 30)
@@ -775,6 +780,64 @@ var y = d3.scaleBand().range([height, 0]);
     
     //first value of data, create a bar chart and a tooltip
     
+    HumanData.forEach(function (d){
+  
+  	x2.domain([0, Math.max(d3.max(HumanData, function(d) { return d.value; }),d3.max(NestedData, function(d) { return d.value; }))]);
+    y2.domain(HumanData.map(function(d) { return d.label; })).padding(0.1);  
+      
+      g.selectAll("line")
+      .data(x.ticks(5))
+      .enter().append("svg:line")
+      .attr("x1", x)
+      .attr("x2", x)
+      .attr("y1", 0)
+      .attr("y2", height)
+      .attr("stroke", "#FFCD00")
+      .attr("opacity",0.5);
+
+    g.selectAll("text.rule")
+     .data(x.ticks(5))
+    .enter().append("svg:text")
+      .attr("class", "rule")
+      .attr("x", x)
+      .attr("y", 0)
+      .attr("dy", -3)
+      .attr("text-anchor", "middle")
+     .attr("fill", "#FFCD00")
+      .text(String);
+    
+    g.append("g")
+        .attr("class", "y-axis")
+        .call(d3.axisLeft(y2));
+    
+    d3.selectAll(".tick > text")
+        
+        .attr("style","font-size:12.5px; fill:#FFCD00");
+    
+    d3.selectAll(".tick > line")
+        .style("display","none");
+    
+      
+    g.selectAll(".bar2")
+    .data(HumanData)
+    .enter()
+        .append("rect")
+        .attr("class", "bar2")
+        .attr("rx", 6)
+        .attr("ry", 6)
+        .attr("x", 0)
+        .attr("height", y2.bandwidth())
+        .attr("y", function(d) { return y2(d.label); })
+        .attr("width", function(d) {return x2(d.value); })
+        .on("mousemove", function(d){
+            tooltip
+              .style("left", d3.event.clientX - 50 + "px")
+              .style("top", d3.event.clientY - 70 + "px")
+              .style("display", "inline-block")
+              .html((d.category) + "<br>" + (d.value) + "g");
+        })
+    		.on("mouseout", function(d){tooltip.style("display", "none");});
+});
     NestedData.forEach(function (d){
   
   	x.domain([0, Math.max(d3.max(HumanData, function(d) { return d.value; }),d3.max(NestedData, function(d) { return d.value; }))]);
@@ -823,63 +886,7 @@ var y = d3.scaleBand().range([height, 0]);
     
  //second data of bar chart       
 
-HumanData.forEach(function (d){
-  
-  	x2.domain([0, Math.max(d3.max(HumanData, function(d) { return d.value; }),d3.max(NestedData, function(d) { return d.value; }))]);
-    y2.domain(HumanData.map(function(d) { return d.label; })).padding(0.1);  
-      
-      g.selectAll("line")
-      .data(x.ticks(5))
-      .enter().append("svg:line")
-      .attr("x1", x)
-      .attr("x2", x)
-      .attr("y1", 0)
-      .attr("y2", height)
-      .attr("stroke", "#FFCD00")
-      .attr("opacity",0.5);
 
-    g.selectAll("text.rule")
-     .data(x.ticks(5))
-    .enter().append("svg:text")
-      .attr("class", "rule")
-      .attr("x", x)
-      .attr("y", 0)
-      .attr("dy", -3)
-      .attr("text-anchor", "middle")
-     .attr("fill", "#FFCD00")
-      .text(String);
-    
-    g.append("g")
-        .attr("class", "y-axis")
-        .call(d3.axisLeft(y2));
-    
-    d3.selectAll(".tick > text")
-        .style("fill", "#FFCD00");
-    
-    d3.selectAll(".tick > line")
-        .style("display","none");
-    
-      
-    g.selectAll(".bar2")
-    .data(HumanData)
-    .enter()
-        .append("rect")
-        .attr("class", "bar2")
-        .attr("rx", 6)
-        .attr("ry", 6)
-        .attr("x", 0)
-        .attr("height", y2.bandwidth())
-        .attr("y", function(d) { return y2(d.label); })
-        .attr("width", function(d) {return x2(d.value); })
-        .on("mousemove", function(d){
-            tooltip
-              .style("left", d3.event.clientX - 50 + "px")
-              .style("top", d3.event.clientY - 70 + "px")
-              .style("display", "inline-block")
-              .html((d.category) + "<br>" + (d.value) + "g");
-        })
-    		.on("mouseout", function(d){tooltip.style("display", "none");});
-});
         
 };
     
