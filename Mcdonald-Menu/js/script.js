@@ -50,15 +50,11 @@ $('.itemDesc').hover( function(){
 	$(this).stop().animate({ opacity: 0 }, 'slow'); 
 });
 
-	$('.itemDesc, .prjLink').hover(function () {
-    var projDesc = $(this).find('.itemDesc');
-    
-});
-			
-
-
-
-
+		$('.itemDesc').hover(function () {
+					    var itemDesc1 = $(this).find('.itemDesc1');
+					    var offset = ($(this).height() / 2) - (itemDesc1.height() / 2);
+					    $(this).find('.itemDescInner').css('padding-top', offset -30);
+					});
 
 
 });
