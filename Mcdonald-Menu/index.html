@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
 	<title>Nutritution Facts for Mcdonald's Menu</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -196,63 +197,66 @@
 
 			<section class="clearfix margin-top" id="nutrition">	
 		
-				<div class="tholder ">
-
-					<div class="bigTitle tCenter">	
-						<h1 style="font-size:30px; ">- Check Facts -</h1>
-					</div>
-							
-				</div>
-
-			
-			
-				<div class="center">
+                   
+                <div class="tholder">
+                    <div class="center">
 
 					 <a href="#menu" class="scroll" role="button">Click me to try another Menu</a>
 
 
 				</div>
-				 
-		
+				</div>    
+                
+
+					<div class="bigTitle tCenter">	
+<!--						<h1 style="font-size:30px; ">- Check Facts -</h1>-->
+                      <img src="img/mcicon.png">  
+                        
+					</div>
+				
+                
+         
 
 			<div class="container">
-				<div class="one-half column">
+				
+                
+                <div class="group-left">
+                <div class="GraphOne">
 				<fieldset>
-				  <legend class="g1">Graph 1:</legend>
+				  <legend class="g1"></legend>
 				  <p id="graph1"></p>
 				 </fieldset>
-							
 				</div>
-
-
-
-			<div class="one-half column">
-				<fieldset >
-				  <legend class="g2">Graph 2:</legend>
-				  <p id="graph2"></p>
-				 </fieldset>
-							
-				</div>
-
-			<div class="one-half column">
-				<fieldset >
-				  <legend class="g3">What are the major components of this meal?</legend>
-				  <p id="graph3"></p>
-				  <div class="margin-top-minus">
-					  <p class="tCenter bold">Carbohydrates include:  <span class="unbold"> Sugars, Starches, and Fiber</span></p>
-					  <p class="tCenter bold" >Others include:  <span class="unbold"> Water, Minerals and Vitamins</span></p>
-				  </div>
-				 </fieldset>
-							
-				</div>
-
-				<div class="one-half column">
+		     
+                <div class="GraphThree">
 				<fieldset>
-				  <legend>Little Man:</legend>
+				  <legend class="g3"></legend>
+				  <p id="graph3"></p>
+		 </fieldset>			
+				</div>
+                </div>
+                 
+                
+                <div class="centerbox"><img src="img/nav2.png"></div>
+                
+                
+                
+                
+                <div class="group-right">
+			    <div class="GraphTwo">
+				<fieldset>
+				  <legend class="g2"></legend>
+				  <p id="graph2"></p>
+				 </fieldset>			
+				</div>
+
+				<div class="GraphFour">
+				<fieldset>
+				  <legend></legend>
 				  <p class="tCenter">
 					  <label for="nWidth" 
 					         style="">
-					         How many months have you been eating McDonald's? = <span id="nWidth-value">…</span>
+					         <span id="nWidth-value">…</span>
 					  </label><br>
 					   <input type="range" min="36" max="60" id="nWidth" step="4">
 					</p>
@@ -261,12 +265,9 @@
 				 </fieldset>
 							
 				</div>
-				<!-- 620 x 336 -->
+                </div>
+				<!-- 580 x 430 -->
 				
-				<div>
-
-				</div>
-
 			</div>
 
 			<!-- visualization goes here -->
@@ -286,17 +287,59 @@
  <script type="text/javascript"> 
 
 	// Creating canvas
-	var width = 620;
-	var height = 350;
+	var width = 580;
+	var height = 430;
 
 
 	var holder = d3.select("#littleman-graph")
 	      .append("svg")
 	      .attr("width", width)    
 	      .attr("height", height); 
+   
+    //title 
+     holder.append("text")
+    .attr("class", "text1")
+    .attr("x", 20)
+    .attr("y", 280)
+    .style("font-size", "64px")
+    .style("fill","#FFCD00")
+    .text("Control");   
+     
+    holder.append("text")
+    .attr("class", "text1")
+    .attr("x", 28)
+    .attr("y", 330)
+    .style("font-size", "48px")
+    .style("fill","#FFCD00")
+    .text("Yourself"); 
+    
+     //subtitle
+    holder.append("text")
+    .attr("class", "text2")
+    .attr("x", 35)
+    .attr("y", 40)
+    .style("font-size", "19px")
+    .style("fill","#FFCD00")
+    .text("Interactive Inspector");
+     
+    holder.append("text")
+    .attr("class", "text3")
+    .attr("x", 128)
+    .attr("y", 65)
+    .style("font-size", "15px")
+    .style("fill","#FFCD00")
+    .style("text-anchor","middle")
+    .text("How many months have you")
+    .append("tspan")
+    .attr("x", 128)
+    .attr("dy",20)
+    .text("been eating McDonald's?");
+     
+     
+     
 
 	var g = holder.append("g")
-		.attr("transform", "translate(" + 100 + "," + 50 + ")");
+		.attr("transform", "translate(240,80)");
 
 	var mcdMan=g
 	  .append("image")
@@ -339,7 +382,7 @@
  </script>
 
 
-<!-- script for donut chart -->
+<!-- script for loading data -->
 <script>
 // Reading csv and saving all variables into arrays
 var foodData;
@@ -352,13 +395,9 @@ var rest= new Array();
 var donutData= new Array();
 var donutPerc= new Array();
 var eachBurn = new Array();
+var eachCal = new Array();
 
-// var cateN = 5;
-// var mealN = 9;
-// var barDataN = {category:"",label:"Fat",value:};
-// var barData = new Array();
-// for (var i = 0; i < n; i++)
-//     barData.push(barDataN);
+
 
 var HumanData=
     [{"label":"Fat","category":"Avg. Adult Intake","value":23},
@@ -373,8 +412,11 @@ var barData = new Array();
 
 d3.csv("menu-1.csv", function(d) {
   foodData = d;
-  foodData.forEach(function(d,i){
+  
+    foodData.forEach(function(d,i){
   	var inter = []
+    eachCal.push(d.Calories)
+    
     item.push(d.Item)
     size.push(d.Size)
     fat.push(d.Fat)
@@ -399,33 +441,32 @@ d3.csv("menu-1.csv", function(d) {
     inter2.push ({category:d.Item,label:"Jumprope",value:Math.round(d.Calories*1/12*10)/10})
     inter2.push ({category:d.Item,label:"Stair-climbing",value:Math.round(d.Calories*1/11*10)/10})
     eachBurn.push(inter2)
-    //till here
   });
     
      plotDountpie(donutData, donutPerc, 0);
      PlotBarOne(barData,HumanData,0);
-     PlotBarTwo(eachBurn,0);
+     PlotBarTwo(eachBurn,eachCal,0);
 });    
     
 var data =donutData;
-var label = ["Fats","Carbohydrates","Proteins","Others"];
+var label = ["Fats","Carbs","Proteins","Others"];
 var percentage = donutPerc;
     
-//var NestedData = new Array();
+
+//script for donut chart
     
 function plotDountpie(data, percentage, Arrayindex){ 
 
-var width = 620,
-    height = 336;
+var width = 580,
+    height = 430;
 
 var outerRadius = height / 2 - 20,
     innerRadius = outerRadius / 3,
     cornerRadius = 10;
-var color = d3.scaleOrdinal(d3.schemeCategory10);
-
+var color = d3.scaleOrdinal(d3.schemeCategory10);    
+    
 var pie = d3.pie()
     .padAngle(.03)
-//    .value(function(d,i) {return data[i].count;})
     .sort(null);
 
 var arc = d3.arc()
@@ -438,53 +479,158 @@ var svg = d3.select("#graph3").append("svg")
     .attr("height", height)
     .attr("class", "removable")
     .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-svg.selectAll("path")
-//    console.log(Arrayindex)
-//    console.log(donutData)
+  
+var g2 = svg.append("g")
+		.attr("transform", "translate(290, 280)");  
     
+  svg.append("text")
+    .attr("class", "text1")
+    .attr("x", 270)
+    .attr("y", 90)
+    .style("font-size", "48px")
+    .style("fill","#EE1E1E")
+    .text("Components");   
+     
+    svg.append("text")
+    .attr("class", "text2")
+    .attr("x", 10)
+    .attr("y", 40)
+    .style("font-size", "19px")
+    .style("fill","#EE1E1E")
+    .text("Nutrition Knowledge");
+    
+    svg.append("text")
+    .attr("class", "text3")
+    .attr("x", 105)
+    .attr("y", 65)
+    .style("font-size", "15px")
+    .style("fill","#EE1E1E")
+    .style("text-anchor","middle")
+    .text("What kind of nutrition in")
+    .append("tspan")
+    .attr("x", 105)
+    .attr("dy",20)
+    .text("this meal at 1 serving?");
+    
+    svg.append("circle")
+        .attr("cx",450)
+        .attr("cy",150)
+        .attr("r",10)
+        .style("fill", "#2CA02C");
+    
+       svg.append("text")
+        .attr("class", "text3")
+        .attr("x",470)
+        .attr("y",156)
+        .style("fill","#2CA02C")
+       .style("font-size", "15px")
+       .text("Proteins"); 
+    
+
+        svg.append("circle")
+        .attr("cx",450)
+        .attr("cy",180)
+        .attr("r",10)
+        .style("fill","#F97C2A");
+     
+      svg.append("text")
+        .attr("class", "text3")
+        .attr("x",470)
+        .attr("y",186)
+        .style("fill","#F97C2A")
+       .style("font-size", "15px")
+       .text("Carbohydrates"); 
+    
+    
+        svg.append("circle")
+        .attr("cx",450)
+        .attr("cy",210)
+        .attr("r",10)
+        .style("fill","#1F77B4");
+      
+      svg.append("text")
+        .attr("class", "text3")
+        .attr("x",470)
+        .attr("y",216)
+        .style("fill","#1F77B4")
+       .style("font-size", "15px")
+       .text("Fats"); 
+    
+    
+        svg.append("circle")
+        .attr("cx",450)
+        .attr("cy",240)
+        .attr("r",10)
+        .style("fill","#D62728");
+     
+     svg.append("text")
+        .attr("class", "text3")
+        .attr("x",470)
+        .attr("y",246)
+        .style("fill","#D62728")
+       .style("font-size", "15px")
+       .text("Others"); 
+    
+       svg.append("line")
+        .attr("x1",30)
+        .attr("y1",246)
+        .attr("x2",180)
+        .attr("y2",246)
+        .attr("stroke", "#D62728"); 
+     
+    svg.append("text")
+        .attr("class", "text3")
+        .attr("x",30)
+        .attr("y",245)
+        .style("fill","#D62728")
+       .style("font-size", "15px")
+       .text("Others includes:")
+       .append("tspan")
+      .attr("x", 30)
+      .attr("dy",20)
+      .text("Water")
+      .append("tspan")
+    .attr("x",30)
+    .attr("dy",20)
+    .text("Minerals")
+    .append("tspan")
+    .attr("x",30)
+    .attr("dy",20)
+    .text("Vitamins");
+    
+
+g2.selectAll("path")
     .data(pie(data[Arrayindex]))
     .enter().append("path")
     .each(function(d) { d.outerRadius = outerRadius - 20; })
     .attr("d", arc)
-//    .append("title")
-//     .text(function(d){return d.value;})
     .style("fill",function(d,i){return color(i);})
-    .style('stroke', '#FFFFFF')
+    .attr("transform", "scale(0.7)")
     .on("mouseover",handleMouseOver)
     .on("mouseout", handleMouseOut);
     
    
-
-
-    
-    
-	//plot legend     
 	    
 	function handleMouseOver(d,i){
 	   
-	      svg.append("text")
-	            .attr("dy", ".9em")
-	            .transition()
+	      g2.append("text")
+	            .attr("dy", "20")
 	            .style("text-anchor", "middle")
-	            .style("font-size", 20)
+	            .style("font-size", 15)
 	            .attr("class","label")
-	            .style("fill", function(d,i){return "black";})
-
-	//            .text(function(d,i){ return data[i].label;}); 
+	            .style("fill", "#EE1E1E")
+           .transition()
 	            .text(label[i]);
 	      
-	        svg.append("text")
+	        g2.append("text")
 	            .attr("dy", ".1000em")
-	            .attr("transform", "translate(0,-10)")
+	            .attr("transform", "translate(0,-25),scale(0.7)")
 	            .transition()
 	            .style("text-anchor", "middle")
 	            .style("font-size", 20)
 	            .attr("class","label")
-	            .style("fill", function(d,i){return "black";})
-	//            .append("title")
-	//            .text(function(d,i){ return data[i].percentage;}); 
+                .attr("transform", "translate(0,2)")
+	            .style("fill", "#EE1E1E")
 	            .text(percentage[Arrayindex][i]+"%");
 	    
 	      d3.select(this).transition().delay(0).attrTween("d", function(d) {
@@ -495,7 +641,7 @@ svg.selectAll("path")
 	    
 	 
 	function handleMouseOut(d,i){
-	    svg.selectAll(".label").remove();
+	    g2.selectAll(".label").remove();
 	    
 	     d3.select(this).transition().delay(150).attrTween("d", function(d) {
 	      var i = d3.interpolate(d.outerRadius, outerRadius-20);
@@ -504,6 +650,7 @@ svg.selectAll("path")
 	}
 };
   
+//click event for multiple menu    
 
 var clicks = document.querySelectorAll(".click").forEach(function (el) {
     el.addEventListener("click", clickHandle);
@@ -516,7 +663,7 @@ function clickHandle (e) {
         var id = this.getAttribute("data_id");
         plotDountpie(donutData, donutPerc, id);
         PlotBarOne(barData,HumanData,id);
-     	PlotBarTwo(eachBurn,id);
+     	PlotBarTwo(eachBurn,eachCal,id);
     }
     else {
      console.warn("Data has not yet loaded");   
@@ -527,31 +674,29 @@ function clickHandle (e) {
 
 <!-- script for the first bar -->
 <script type="text/javascript">
-	//var NestedData = new Array(); 
+
     
     
 function PlotBarOne(data1,data2,ArrayIndex){    
 
     NestedData=barData[ArrayIndex];
-//    console.log(NestedData);
-    //var width2 = 610
-    //var height2  = 326
 
-    var svg2 = d3.select("#graph1").append("svg").attr("width", 610)
-    .attr("height", 350)
+
+    var svg2 = d3.select("#graph1").append("svg").attr("width", 580)
+    .attr("height", 420)
     .attr("class", "removable")
-    .append("g"),
+    .append("g")
 
-    margin = {top: 20, right: 20, bottom: 30, left: 80},
-    width = 610 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    margin = {top: 20, right: 20, left: 50},
+    width = 420- margin.left - margin.right,
+    height = 420- margin.top;
   
 var tooltip = d3.select("#graph1").append("div").attr("class", "toolTip");
 
 var xExtent1= d3.extent(NestedData, function(d) {return d.value; });  
 //console.log(xExtent1)
 
-var x2 = d3.scaleLinear().range([0, width]);
+var x2 = d3.scaleLinear().range([20, 400]);
 var y2 = d3.scaleBand().range([height, 0]);
 
 var g = svg2.append("g")
@@ -564,8 +709,69 @@ var x = d3.scaleLinear().domain(xExtent2).range([0, width]);
 var y = d3.scaleBand().range([height, 0]);
   
     
+  svg2.append("text")
+    .attr("class", "text1")
+    .attr("x", 470)
+    .attr("y", 300)
+    .style("font-size", "64px")
+    .style("fill","#FFCD00")
+    .text("Mc");
     
-  
+    svg2.append("text")
+    .attr("class", "text1")
+    .attr("x", 515)
+    .attr("y", 345)
+    .style("font-size", "45px")
+    .style("fill","#FFCD00")
+    .text("vs.");
+    
+     svg2.append("text")
+    .attr("class", "text1")
+    .attr("x", 450)
+    .attr("y", 395)
+    .style("font-size", "64px")
+    .style("fill","#FFCD00")
+    .text("You");
+    
+     svg2.append("text")
+    .attr("class", "text2")
+    .attr("x", 410)
+    .attr("y", 40)
+    .style("font-size", "19px")
+    .style("fill","#FFCD00")
+    .text("Comparative Data");
+    
+    svg2.append("text")
+    .attr("class", "text3")
+    .attr("x", 493)
+    .attr("y", 65)
+    .style("font-size", "15px")
+    .style("fill","#FFCD00")
+    .style("text-anchor","middle")
+    .text("How much ingredient")
+    .append("tspan")
+    .attr("x", 493)
+    .attr("dy",20)
+    .text("does it exceed your")
+    .append("tspan")
+    .attr("x", 493)
+    .attr("dy",20)
+    .text("average intake in")
+    .append("tspan")
+    .attr("x", 493)
+    .attr("dy",20)
+    .text("at 1 serving?");
+    
+    svg2.append("text")
+    .attr("class","text2")
+    .attr("x", 575)
+    .attr("y", 220)
+    .style("font-size", "15px")
+    .style("fill","#FFCD00")
+    .style("text-anchor","end")
+    .style("text-decoration","underline")
+    .text("Menu Name:");
+
     
     //first value of data, create a bar chart and a tooltip
     
@@ -585,18 +791,33 @@ var y = d3.scaleBand().range([height, 0]);
         .attr("x", 0)
 
         .attr("height", y.bandwidth()/5*2)
-        .attr("transform", "translate(0,15)")
+        .attr("transform", "translate(0,20)")
         .attr("y", function(d) { return y(d.label); })
         .attr("width", function(d) {return x(d.value); })
 
         .on("mousemove", function(d){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.clientX - 50 + "px")
+              .style("top", d3.event.clientY - 70 + "px")
               .style("display", "inline-block")
-              .html((d.category) + "<br>"+ (d.value)+" g");
+              .html((d.category) + "<br>" + (d.value) + "g");
         })
     		.on("mouseout", function(d){tooltip.style("display", "none");});
+        
+        
+    g.selectAll("text")
+    .data(NestedData)
+    .enter()
+    .append("text")
+    .attr("class", "text1")
+    .attr("x", 520)
+    .attr("y", 220)
+    .style("font-size", "15px")
+    .style("fill","#FFCD00")
+    .style("text-anchor","end")
+    .text(function(d) {return d.category}); 
+        
+        
 });
     
     
@@ -608,33 +829,36 @@ HumanData.forEach(function (d){
     y2.domain(HumanData.map(function(d) { return d.label; })).padding(0.1);  
       
       g.selectAll("line")
-      .data(x.ticks(10))
+      .data(x.ticks(5))
       .enter().append("svg:line")
       .attr("x1", x)
       .attr("x2", x)
       .attr("y1", 0)
       .attr("y2", height)
-      .attr("stroke", "#ccc");
+      .attr("stroke", "#FFCD00")
+      .attr("opacity",0.5);
 
     g.selectAll("text.rule")
-     .data(x.ticks(10))
+     .data(x.ticks(5))
     .enter().append("svg:text")
       .attr("class", "rule")
       .attr("x", x)
       .attr("y", 0)
       .attr("dy", -3)
       .attr("text-anchor", "middle")
+     .attr("fill", "#FFCD00")
       .text(String);
     
-     g.append("svg:line")
-      .attr("y1", 0)
-      .attr("y2",height)
-      .attr("stroke", "#000");
-
     g.append("g")
-        .attr("class", "y axis")
+        .attr("class", "y-axis")
         .call(d3.axisLeft(y2));
-      
+    
+    d3.selectAll(".tick > text")
+        .style("fill", "#FFCD00");
+    
+    d3.selectAll(".tick > line")
+        .style("display","none");
+    
       
     g.selectAll(".bar2")
     .data(HumanData)
@@ -649,16 +873,16 @@ HumanData.forEach(function (d){
         .attr("width", function(d) {return x2(d.value); })
         .on("mousemove", function(d){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.clientX - 50 + "px")
+              .style("top", d3.event.clientY - 70 + "px")
               .style("display", "inline-block")
               .html((d.category) + "<br>" + (d.value) + "g");
         })
     		.on("mouseout", function(d){tooltip.style("display", "none");});
 });
         
-
 };
+    
     
 </script>
 
@@ -667,22 +891,21 @@ HumanData.forEach(function (d){
 	        
         
         
-function PlotBarTwo(data, ArrayIndex){
+function PlotBarTwo(data1,data2,ArrayIndex){
 
     
-var NestedData=data[ArrayIndex];   
+var NestedData=data1[ArrayIndex];
+var CalData=data2[ArrayIndex];
 
-var svg3 = d3.select("#graph2").append("svg").attr("width", 620)
-    .attr("height", 350)
+var svg3 = d3.select("#graph2").append("svg").attr("width", 580)
+    .attr("height", 420)
     .attr("class", "removable")
     .append("g"),
-    margin = {top: 20, right: 20, bottom: 30, left: 80},
-    width = 620 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
-  
-var tooltip = d3.select("#graph2").append("div").attr("class", "toolTip");
+     
+    margin = {top: 20, right: 25, left: 230},
+    width = 580- margin.left - margin.right,
+    height = 420- margin.top;
 
-var color = d3.scaleOrdinal().range(["#03A9F4","#2196F3", "#3F51B5","#FFEB3B","#FF9800","#F44336"]);
   
 var x = d3.scaleLinear().range([0, width]);
 
@@ -691,103 +914,174 @@ var y = d3.scaleBand().range([height, 0]);
 var g2 = svg3.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");  
     
-    //first value of data, create a bar chart and a tooltip
+  
+    svg3.append("text")
+    .attr("class", "text1")
+    .attr("x", 150)
+    .attr("y", 150)
+    .style("font-size", "25px")
+    .style("fill","#FF5530")
+    .text("Cal.");
+    
+    
+    svg3.append("text")
+    .attr("class", "text2")
+    .attr("x", 10)
+    .attr("y", 300)
+    .style("font-size", "19px")
+    .style("fill","#FF5530")
+    .text("Exercise Equivalents");
+    
+    svg3.append("text")
+    .attr("class", "text3")
+    .attr("x", 103)
+    .attr("y", 325)
+    .style("font-size", "15px")
+    .style("fill","#FF5530")
+    .style("text-anchor","middle")
+    .text("How much exercise does")
+    .append("tspan")
+    .attr("x", 103)
+    .attr("dy",20)
+    .text("it take to burn off")
+    .append("tspan")
+    .attr("x", 103)
+    .attr("dy",20)
+    .text("at 1 serving?")
+    ;
+    
     
    var running=svg3
     .append("image")
     .attr('xlink:href','img/running.png')
     .attr("height",'40')
     .attr('width','40')
-   .attr('x','100')
-   .attr('y','270');
+   .attr('x','190')
+   .attr('y','355')
+    .transition()
+    .duration(500)
+    .delay(1000)
+    .attr('x','540')
+    .attr('y','355');;
     
     var jogging=svg3
     .append("image")
     .attr('xlink:href','img/jogging.png')
     .attr("height",'40')
     .attr('width','40')
-   .attr('x','100')
-   .attr('y','220');
+   .attr('x','190')
+   .attr('y','290')
+    .transition()
+    .duration(700)
+    .delay(1000)
+    .attr('x','540')
+    .attr('y','290');
     
     var swimming=svg3
     .append("image")
     .attr('xlink:href','img/swimming.png')
     .attr("height",'40')
     .attr('width','40')
-   .attr('x','100')
-   .attr('y','170');
+   .attr('x','190')
+   .attr('y','225')
+    .transition()
+    .duration(1000)
+    .delay(1000)
+    .attr('x','540')
+    .attr('y','225');
     
     var cycling=svg3
     .append("image")
     .attr('xlink:href','img/cycling.png')
-    .attr("height",'40')
-    .attr('width','40')
-   .attr('x','100')
-   .attr('y','120');
+    .attr("height",'45')
+    .attr('width','45')
+    .attr('x','190')
+    .attr('y','160')
+    .transition()
+    .duration(1000)
+    .delay(1000)
+    .attr('x','535')
+    .attr('y','160');;
     
     var jumprope=svg3
     .append("image")
     .attr('xlink:href','img/jumprope.png')
-    .attr("height",'40')
-    .attr('width','40')
-   .attr('x','100')
-   .attr('y','80');
+    .attr("height",'45')
+    .attr('width','45')
+   .attr('x','190')
+   .attr('y','90')
+    .transition()
+    .duration(2000)
+    .delay(1000)
+    .attr('x','540')
+    .attr('y','90');
     
     var stairclimb=svg3
     .append("image")
     .attr('xlink:href','img/stairclimb.png')
     .attr("height",'47')
     .attr('width','47')
-   .attr('x','100')
-   .attr('y','25');
+   .attr('x','190')
+   .attr('y','25')
+    .transition()
+    .duration(1000)
+    .delay(1000)
+    .attr('x','540')
+    .attr('y','25');
+ 
+    
+    svg3.append("text")
+    .attr("class", "text1")
+    .attr("x", 5)
+    .attr("y", 120)
+    .style("font-size", "72px")
+    .style("fill","#FF5530")
+    .text(CalData);
     
     NestedData.forEach(function (d){
   
   	x.domain([0, d3.max(NestedData, function(d) { return d.value; })]);
-    y.domain(NestedData.map(function(d) { return d.label; })).padding(0.1);
-	console.log(NestedData)
+    y.domain(NestedData.map(function(d) { return d.label; })).padding(0.1);    
+      
     
-     g2.selectAll("line")
-      .data(x.ticks(10))
+        g2.selectAll("line")
+      .data(x.ticks(5))
       .enter().append("svg:line")
       .attr("x1", x)
       .attr("x2", x)
       .attr("y1", 0)
       .attr("y2", height)
-      .attr("stroke", "#ccc");
+      .style("stroke", "#FF5530");
 
     g2.selectAll("text.rule")
-     .data(x.ticks(10))
+     .data(x.ticks(5))
     .enter().append("svg:text")
       .attr("class", "rule")
       .attr("x", x)
       .attr("y", 0)
       .attr("dy", -3)
       .attr("text-anchor", "middle")
+      .style("fill", "#FF5530")
       .text(String);
-    
-     g2.append("svg:line")
-      .attr("y1", 0)
-      .attr("y2",height)
-      .attr("stroke", "#000");
-
-    g2.append("g")
-        .attr("class", "y axis")
-        .call(d3.axisLeft(y));
+//
+//    g2.append("g")
+//        .attr("class", "y-axis")
+//        .call(d3.axisLeft(y));
         
 
+        
     g2.selectAll(".bar")
     .data(NestedData)
     .enter()
         .append("rect")
         .attr("class", "bar")
-        .attr("rx", 6)
-        .attr("ry", 6)
+        .attr("rx", 18)
+        .attr("ry", 18)
         .attr("x", 0)
         .attr("height", y.bandwidth()/2)
         .attr("y", function(d) { return y(d.label); })
         .attr("width", function(d) { return x(d.value); })
-        .style("fill",function(d,i){return color(i);})
+        .style("fill", "white")
         .attr("transform", "translate(0,10)");
         
           g2.selectAll(".text")
@@ -797,7 +1091,7 @@ var g2 = svg3.append("g")
             .attr("class", "label")
             //y position of the label is halfway down the bar
             .attr("y", function (d) {
-                return y(d.label) + y.bandwidth()/2+8;
+                return y(d.label) + y.bandwidth()/2;
             })
             //x position is 3 pixels to the right of the bar
             .attr("x", function (d) {
@@ -806,15 +1100,17 @@ var g2 = svg3.append("g")
             .text(function (d) {
                 return d.value + " min";
             })
-            .attr("transform", "translate(-80,-3)")
-            .style("fill","white");
+            .attr("transform", "translate(-80,0)")
+            .style("fill","#FF5530");
    
     });
         
 };
+   
 
 
 </script>
+    
     
     
 
