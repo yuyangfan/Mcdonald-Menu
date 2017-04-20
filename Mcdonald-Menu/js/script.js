@@ -47,25 +47,25 @@ $('button.scroll').smoothScroll({
 
 //---------------------------------- Portfolio -----------------------------------------//
 
-$(".itemDesc, .prjLink").css({ opacity: 0 });
+$(".itemDesc").css({ opacity: 0 });
 
-//--------------------------------- Hover animation for the elements of the portfolio --------------------------------//
+//--------------------------------- Hover animation for the elements of the  --------------------------------//
 				
 	
-$('.itemDesc, .prjLink').hover( function(){ 
+$('.itemDesc').hover( function(){ 
 	$(this).stop().animate({ opacity: 1 }, 'slow');
 }, function(){ 
 	$(this).stop().animate({ opacity: 0 }, 'slow'); 
 });
 
 	$('.itemDesc, .prjLink').hover(function () {
-    var projDesc = $(this).find('.itemDesc, .latestDesc, .prjLink');
-    var offset = ($(this).height() / 2) - (projDesc.height() / 2);
-    $(this).find('.itemDescInner, .prjLinkInner').css('padding-top', offset -30);
+    var projDesc = $(this).find('.itemDesc');
+    //var offset = ($(this).height() / 2) - (projDesc.height() / 2);
+    // $(this).find('.itemDescInner, .prjLinkInner').css('padding-top', offset);
 });
 			
 
-//--------------------------------- End hover animation for the elements of the portfolio --------------------------------//
+//--------------------------------- End hover animation for the elements of the  --------------------------------//
 
 				
 //-----------------------------------End initilaizing fancybox for the portfolio-------------------------------------------------//
