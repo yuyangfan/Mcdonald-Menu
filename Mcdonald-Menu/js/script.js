@@ -1,7 +1,6 @@
 (function($) {
   "use strict";
 
-//------------------------------------- Waiting for the entire site to load ------------------------------------------------//
 
 
 $(document).ready(function(){
@@ -27,7 +26,6 @@ if (!(/android|blackberry|windows phone|iphone|ipod/i).test(navigator.userAgent.
 }
 	
 	
-//------------------------------------- Navigation setup ------------------------------------------------//
 
 $('a.scroll').smoothScroll({
         speed: 800
@@ -39,18 +37,12 @@ $('button.scroll').smoothScroll({
 	left:0
 });
 
-//------------------------------------- End navigation setup ------------------------------------------------//
 
 
-
-
-
-//---------------------------------- Portfolio -----------------------------------------//
 
 $(".itemDesc").css({ opacity: 0 });
 
-//--------------------------------- Hover animation for the elements of the  --------------------------------//
-				
+			
 	
 $('.itemDesc').hover( function(){ 
 	$(this).stop().animate({ opacity: 1 }, 'slow');
@@ -60,15 +52,10 @@ $('.itemDesc').hover( function(){
 
 	$('.itemDesc, .prjLink').hover(function () {
     var projDesc = $(this).find('.itemDesc');
-    //var offset = ($(this).height() / 2) - (projDesc.height() / 2);
-    // $(this).find('.itemDescInner, .prjLinkInner').css('padding-top', offset);
+    
 });
 			
 
-//--------------------------------- End hover animation for the elements of the  --------------------------------//
-
-				
-//-----------------------------------End initilaizing fancybox for the portfolio-------------------------------------------------//
 
 
 
